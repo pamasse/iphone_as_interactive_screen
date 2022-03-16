@@ -99,6 +99,12 @@ acl.addEventListener('reading', () => {
 
 acl.start();
 
+window.ondevicemotion = function(event) {
+	$('ax').innerHTML =  event.accelerationIncludingGravity.x
+	$('ay').innerHTML = event.accelerationIncludingGravity.y
+	$('az').innerHTML =  event.accelerationIncludingGravity.z
+	}
+
 
 
 function gotDevices(deviceInfos) {
