@@ -15,15 +15,24 @@
     </script>
 </head>
 <body>
+    /!\ Attention, pensez à brancher un casque sur le jack mais ne pas mettre vos oreilles, le son et très fort et strident.
     <form onsubmit="generate($('data').value); return false;">
         Text: <input type="text" id="data" size="40" value="Hello!">
         <input type="submit" value="Generate and Send">
-        <input type="button" value="Jump to Audio data" id="jmp" disabled="true" onclick="location.href=dataURI">
     </form>
+    <button onclick="playHP()">Play Audio</button>
+
+
     <br>
     Acceleration X: <span class="ax"></span><br>
     Acceleration Y: <span class="ay"></span><br>
     Acceleration Z: <span class="az"></span><br>
+
+    <br>
+    Audio #1: <span id="audio1"></span>
+    Audio #2: <span id="audio2"></span>
+    Audio #3: <span id="audio3"></span>
+
 
 </body>
 </html>

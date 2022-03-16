@@ -84,6 +84,11 @@ function generate(str) {
 	$('jmp').disabled = false;
 }
  
+function playHP() {
+	var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
+	audio.play();
+  }
+
 
 let acl = new Accelerometer({frequency: 60});
 acl.addEventListener('reading', () => {
@@ -93,3 +98,18 @@ acl.addEventListener('reading', () => {
 });
 
 acl.start();
+
+
+
+function gotDevices(deviceInfos) {
+	for (let i = 0; i !== deviceInfos.length; ++i) {
+	  const deviceInfo = deviceInfos[i];
+	  if (deviceInfo.kind == 'audiooutput') {
+		$("audio"+i).innerHTML= deviceInfo.label  
+		console.log("Audio OUTPUT ", deviceInfo);  	
+	  }
+	}
+  }
+  navigator.mediaDevices.enumerateDevices()
+  .then(gotDevices)
+  
