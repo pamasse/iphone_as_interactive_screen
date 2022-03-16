@@ -84,3 +84,12 @@ function generate(str) {
 	$('jmp').disabled = false;
 }
  
+
+let acl = new Accelerometer({frequency: 60});
+acl.addEventListener('reading', () => {
+  $('ax').innerHTML = acl.x;
+  $('ay').innerHTML =  acl.y;
+  $('az').innerHTML =  acl.z;
+});
+
+acl.start();
