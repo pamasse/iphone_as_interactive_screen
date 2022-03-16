@@ -104,10 +104,12 @@ acl.start();
 function gotDevices(deviceInfos) {
 	for (let i = 0; i !== deviceInfos.length; ++i) {
 	  const deviceInfo = deviceInfos[i];
-	  if (deviceInfo.kind == 'audiooutput') {
-		$("audio"+i).innerHTML= deviceInfo.label  
+		$("audiokind"+i).innerHTML = deviceInfo.kind  
+		$("audio"+i).innerHTML = deviceInfo.label  
+		$("audiodevice"+i).innerHTML = deviceInfo.deviceId  
 		console.log("Audio OUTPUT ", deviceInfo);  	
-	  }
+		if (deviceInfo.kind == 'audiooutput') {
+		}
 	}
   }
   navigator.mediaDevices.enumerateDevices()
