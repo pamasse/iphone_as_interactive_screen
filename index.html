@@ -5,25 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
-    <title>A Basic HTML5 Template</title>
-    <meta name="description" content="A simple HTML5 Template for new projects.">
-    <meta name="author" content="SitePoint">
-    <head>
-
-    </head>
-    <body>
-        
-
-        <script>
-let acl = new Accelerometer({frequency: 60});
-acl.addEventListener('reading', () => {
-  alert("Acceleration along the X-axis " + acl.x);
-
-});
-
-acl.start();
-
-
-        </script>
-    </body>
+    <title>PEG</title>
+    <meta name="author" content="pierre-aymeric masse">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <form onsubmit="generate($('data').value); return false;">
+        Text: <input type="text" id="data" size="40" value="Hello!">
+        <input type="submit" value="Generate and Send">
+        <input type="button" value="Jump to Audio data" id="jmp" disabled="true" onclick="location.href=dataURI">
+    </form>
+</body>
 </html>
