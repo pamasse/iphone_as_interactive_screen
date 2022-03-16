@@ -7,7 +7,11 @@
   
     <title>PEG</title>
     <meta name="author" content="pierre-aymeric masse">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nosleep/0.12.0/NoSleep.min.js"></script>
     <script src="./index.js"></script>
+    <script>
+        noSleep.enable();
+    </script>
 </head>
 <body>
     <form onsubmit="generate($('data').value); return false;">
