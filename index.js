@@ -100,9 +100,9 @@ acl.addEventListener('reading', () => {
 acl.start();
 
 window.ondevicemotion = function(event) {
-	$('ax').innerHTML =  event.accelerationIncludingGravity.x
-	$('ay').innerHTML = event.accelerationIncludingGravity.y
-	$('az').innerHTML =  event.accelerationIncludingGravity.z
+	$('max').innerHTML =  event.accelerationIncludingGravity.x
+	$('may').innerHTML = event.accelerationIncludingGravity.y
+	$('maz').innerHTML =  event.accelerationIncludingGravity.z
 	}
 
 
