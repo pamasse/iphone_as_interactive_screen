@@ -14,13 +14,7 @@
     <script>
         // const noSleep = new NoSleep();
         // noSleep.enable();
-        let today, time = ''
-        setInterval(() => {
-            today = new Date();
-            time = today.getHours() + ":" + (today.getMinutes() < 10 ? "0"+ today.getMinutes() : today.getMinutes());
-            document.getElementById("time").textContent = ""+time;
-        }, 500);
-
+        
     </script>
 
     <style>
@@ -139,5 +133,21 @@
         </div>
         <div id="footer"></div>
     </div>
+    
+    <script>
+        // const noSleep = new NoSleep();
+        // noSleep.enable();
+        let today, time = ''
+
+        today = new Date();
+        time = today.getHours() + ":" + (today.getMinutes() < 10 ? "0"+ today.getMinutes() : today.getMinutes());
+        document.getElementById("time").textContent = ""+time;
+
+        setInterval(() => {
+            today = new Date();
+            time = today.getHours() + ":" + (today.getMinutes() < 10 ? "0"+ today.getMinutes() : today.getMinutes());
+            document.getElementById("time").textContent = ""+time;
+        }, 500);
+    </script>
 </body>
 </html>
