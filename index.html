@@ -17,7 +17,7 @@
         let today, time = ''
         setInterval(() => {
             today = new Date();
-            time = today.getHours() + ":" + today.getMinutes();
+            time = today.getHours() + ":" + (today.getMinutes() < 10 ? "0"+ today.getMinutes() : today.getMinutes());
             document.getElementById("time").textContent = ""+time;
         }, 500);
 
@@ -28,7 +28,6 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: yellow;
         }
 
         body {
@@ -36,39 +35,63 @@
             padding: 0;
             height: 100%;
             max-height: 100%;
-            background: green;
             float: left;
             width: 100%;
+            
+            font-family: "Arial";
+            font-weight: bold;
+            color: #050739;
+            font-size: 3rem;
         }
         
         .iphone_container {
             /* transform: rotate(180deg); */
             display: flex;
             flex-direction: column;  
-            align-content: stretch;
+            height: 100%;
         }
+
         #header, #footer { 
             flex-grow:0;
-            background-color: green;
             display: flex;
             justify-content: flex-end;     
         }
                 
         #title { 
             flex-grow:0;  
-            background-color: yellow; 
             display: flex;
             justify-content: center;  
         }
+
+        #title > #time {
+        }
+        
         #content { 
-            flex-grow:1;
-            background-color: red; 
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto; 
+            justify-content: space-evenly;
         }
 
-        #time {
-            font-family: "Arial";
-            color: "#050739";
+        #content > .row {
+            display: flex;
+        }
+        .row > .icon {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;  
+            max-width: 135px;
             font-size: 3rem;
+        }
+        .row > .value {
+            flex: 2 1 auto;
+            display: flex;
+            justify-content: center; 
+        }
+
+        .value > .unit {
+            font-size: 1rem;
+
         }
 
     </style>
@@ -83,7 +106,36 @@
             <span id="time"></span>
         </div>
         <div id="content">
-
+            <div class="row">
+                <div class="icon">
+                    <img src="img/nageoire.png" alt="" srcset="">
+                </div>
+                <div class="value">0<span class="unit">%</span></div>
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="img/charging.png" alt="" srcset="">
+                </div>
+                <div class="value">0<span class="unit">km</span></div>
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="img/battery.png" alt="" srcset="">
+                </div>
+                <div class="value">98<span class="unit">%</span></div>
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="img/speed.png" alt="" srcset="">
+                </div>
+                <div class="value">98<span class="unit">knots</span></div>
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="img/message.png" alt="" srcset="">
+                </div>
+                <div class="value"><span id="message">-</span></div>
+            </div>
         </div>
         <div id="footer"></div>
     </div>
