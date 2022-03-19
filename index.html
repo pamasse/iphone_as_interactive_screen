@@ -38,17 +38,19 @@
             font-weight: bold;
             color: #050739;
             font-size: 4rem;
+
         }
         
         .iphone_container {
-            /* transform: rotate(180deg); */
+            transform: rotate(180deg);
             display: flex;
             flex-direction: column;  
             height: 100%;
         }
 
         #header, #footer { 
-            flex-grow:0;
+            height: 2rem;
+            flex: 0 1 auto; 
             display: flex;
             justify-content: flex-end;     
         }
@@ -60,7 +62,6 @@
         }
 
         #title > #time {
-            margin-top: 1rem;
             font-size: 2rem;
         }
         
