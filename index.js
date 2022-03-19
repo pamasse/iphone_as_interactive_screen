@@ -91,6 +91,7 @@ function playHP() {
 
   (function() {
 
+	/*
 let acl = new Accelerometer({frequency: 60});
 acl.addEventListener('reading', () => {
   $('ax').textContent = acl.x;
@@ -99,6 +100,7 @@ acl.addEventListener('reading', () => {
 });
 
 acl.start();
+*/
 
 window.ondevicemotion = function(event) {
 	$('max').textContent =  event.accelerationIncludingGravity.x
