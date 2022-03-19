@@ -89,6 +89,7 @@ function playHP() {
 	audio.play();
   }
 
+  (function() {
 
 let acl = new Accelerometer({frequency: 60});
 acl.addEventListener('reading', () => {
@@ -122,7 +123,6 @@ function gotDevices(deviceInfos) {
   .then(gotDevices)
   
 
-  (function() {
 	if(window.localStorage)
 	  alert("Local Storage Supported")
 	else
