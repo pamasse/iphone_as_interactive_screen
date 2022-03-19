@@ -121,3 +121,17 @@ function gotDevices(deviceInfos) {
   navigator.mediaDevices.enumerateDevices()
   .then(gotDevices)
   
+
+  (function() {
+	if(window.localStorage)
+	  alert("Local Storage Supported")
+	else
+		alert("Local Storage Not Supported")
+
+	if('serviceWorker' in navigator) {
+			alert("serviceWorker Supported")
+	}
+	else
+		alert("serviceWorker Not Supported")
+
+  })();
