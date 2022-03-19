@@ -123,15 +123,15 @@ function gotDevices(deviceInfos) {
   .then(gotDevices)
   
 
-	if(window.localStorage)
-	  alert("Local Storage Supported")
-	else
-		alert("Local Storage Not Supported")
-
-	if('serviceWorker' in navigator) {
-			alert("serviceWorker Supported")
+	if(window.localStorage) {
+		$("localstorage").innerHTML = "Supported"
+	} else {
+		$("localstorage").innerHTML = "not Supported"
 	}
-	else
-		alert("serviceWorker Not Supported")
-
+	if('serviceWorker' in navigator) {
+		$("serviceworker").innerHTML = "Supported"
+	}
+	else {
+		$("serviceworker").innerHTML = "not Supported"
+	}
   })();
