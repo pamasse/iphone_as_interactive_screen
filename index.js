@@ -131,20 +131,16 @@ function gotDevices(deviceInfos) {
   
 
 	if(window.localStorage) {
-		$("localstorage").textContent = "Supported"
 		console.log( "localstorage" + "Supported")
 	} else {
-		$("localstorage").textContent = "not Supported"
 		console.log( "localstorage" + "not supported")
 
 	}
 	if('serviceWorker' in navigator) {
-		$("serviceworker").textContent = "Supported"
 		console.log( "serviceworker" + "upported")
 
 	}
 	else {
-		$("serviceworker").textContent = "not Supported"
 		console.log( "serviceworker" + "not supported")
 	}
   })();
