@@ -53,6 +53,39 @@
 
 </head>
 <body>
+<!---->
+    /!\ Attention, pensez à brancher un casque sur le jack mais ne pas mettre vos oreilles, le son et très fort et strident.
+    <form onsubmit="generate($('data').value); return false;">
+        Text: <input type="text" id="data" size="40" value="Hello!">
+        <input type="submit" value="Generate and Send">
+    </form>
+    <button onclick="playHP()">Play Audio</button>
+
+
+    <br>
+    Acceleration X: <span id="ax"></span> - <span id="max"></span><br>
+    Acceleration Y: <span id="ay"></span> - <span id="may"></span><br>
+    Acceleration Z: <span id="az"></span> - <span id="maz"></span><br>
+    <br>
+    
+    Local Storage: <span id="localstorage"></span> <br>
+    Service worker: <span id="serviceworker"></span> <br>
+    <br>
+
+    
+    Long: <span id="longitude"></span> <br>
+    Lat: <span id="latitude"></span> <br>
+    <br>
+
+    Audio #0: <span id="audiokind0"></span> / <span id="audio0"></span> / <span id="audiodevice0"></span> <br>
+    Audio #1: <span id="audiokind1"></span> / <span id="audio1"></span> / <span id="audiodevice1"></span> <br>
+    Audio #2: <span id="audiokind2"></span> / <span id="audio2"></span> / <span id="audiodevice2"></span> <br>
+    Audio #3: <span id="audiokind3"></span> / <span id="audio3"></span> / <span id="audiodevice3"></span> <br>
+    Audio #4: <span id="audiokind4"></span> / <span id="audio4"></span> / <span id="audiodevice4"></span> <br>
+    Audio #5: <span id="audiokind5"></span> / <span id="audio5"></span> / <span id="audiodevice5"></span> <br>
+    
+
+
     <div class="parent">
         <div class="div1"> 1 </div>
         <div class="div2"> 2 </div>
@@ -79,5 +112,7 @@
         <div class="div23"> </div>
         <div class="div24"> </div>
         </div>
+
+
 </body>
 </html>
