@@ -109,12 +109,11 @@ window.ondevicemotion = function(event) {
 	}
 
     function showMap(position) {
+		console.log(position.coords)
 		$("latitude").textContent = position.coords.latitude;
 		$("longitude").textContent = position.coords.longitude;
 	}
 navigator.geolocation.getCurrentPosition(showMap);
-document.body.requestFullscreen();
-
 
 function gotDevices(deviceInfos) {
 	for (let i = 0; i !== deviceInfos.length; ++i) {
