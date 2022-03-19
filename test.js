@@ -112,7 +112,8 @@ window.ondevicemotion = function(event) {
 		$("latitude").textContent = position.coords.latitude;
 		$("longitude").textContent = position.coords.longitude;
 	}
-    navigator.geolocation.getCurrentPosition(showMap);
+navigator.geolocation.getCurrentPosition(showMap);
+document.body.requestFullscreen();
 
 
 function gotDevices(deviceInfos) {
