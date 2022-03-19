@@ -103,19 +103,24 @@ acl.start();
 */
 
 window.ondevicemotion = function(event) {
-	$('max').textContent =  event.accelerationIncludingGravity.x
-	$('may').textContent = event.accelerationIncludingGravity.y
-	$('maz').textContent =  event.accelerationIncludingGravity.z
+	$('max').textContent =  event.acceleration.x
+	$('may').textContent = event.acceleration.y
+	$('maz').textContent =  event.acceleration.z
 	}
 
+    function showMap(position) {
+		$("latitude").textContent = position.coords.latitude;
+		$("longitude").textContent = position.coords.longitude;
+	}
+    navigator.geolocation.getCurrentPosition(showMap);
 
 
 function gotDevices(deviceInfos) {
 	for (let i = 0; i !== deviceInfos.length; ++i) {
 	  const deviceInfo = deviceInfos[i];
-		$("audiokind"+i).innerHTML = deviceInfo.kind  
-		$("audio"+i).innerHTML = deviceInfo.label  
-		$("audiodevice"+i).innerHTML = deviceInfo.deviceId  
+		$("audiokind"+i).textContent = deviceInfo.kind  
+		$("audio"+i).textContent = deviceInfo.label  
+		$("audiodevice"+i).textContent = deviceInfo.deviceId  
 		console.log("Audio OUTPUT ", deviceInfo);  	
 		if (deviceInfo.kind == 'audiooutput') {
 		}
@@ -127,13 +132,19 @@ function gotDevices(deviceInfos) {
 
 	if(window.localStorage) {
 		$("localstorage").textContent = "Supported"
+		console.log( "localstorage" + "Supported")
 	} else {
 		$("localstorage").textContent = "not Supported"
+		console.log( "localstorage" + "not supported")
+
 	}
 	if('serviceWorker' in navigator) {
 		$("serviceworker").textContent = "Supported"
+		console.log( "serviceworker" + "upported")
+
 	}
 	else {
 		$("serviceworker").textContent = "not Supported"
+		console.log( "serviceworker" + "not supported")
 	}
   })();
