@@ -77,17 +77,13 @@ function generate(str) {
 	
 	if (size+44 != data.length) alert("wrong size: " + size+44 + " != " + data.length);
 	
-	dataURI = "data:audio/wav;base64," + escape(btoa(data));
+	dataURI = "data:audio/wav;base64," + btoa(data);
 	audio = new Audio(dataURI);
 	audio.play();
 	
 	$('jmp').disabled = false;
 }
  
-function playHP() {
-	var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
-	audio.play();
-  }
 
   (function() {
 
