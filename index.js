@@ -93,17 +93,17 @@ function playHP() {
 
 let acl = new Accelerometer({frequency: 60});
 acl.addEventListener('reading', () => {
-  $('ax').innerHTML = acl.x;
-  $('ay').innerHTML =  acl.y;
-  $('az').innerHTML =  acl.z;
+  $('ax').textContent = acl.x;
+  $('ay').textContent =  acl.y;
+  $('az').textContent =  acl.z;
 });
 
 acl.start();
 
 window.ondevicemotion = function(event) {
-	$('max').innerHTML =  event.accelerationIncludingGravity.x
-	$('may').innerHTML = event.accelerationIncludingGravity.y
-	$('maz').innerHTML =  event.accelerationIncludingGravity.z
+	$('max').textContent =  event.accelerationIncludingGravity.x
+	$('may').textContent = event.accelerationIncludingGravity.y
+	$('maz').textContent =  event.accelerationIncludingGravity.z
 	}
 
 
@@ -124,14 +124,14 @@ function gotDevices(deviceInfos) {
   
 
 	if(window.localStorage) {
-		$("localstorage").innerHTML = "Supported"
+		$("localstorage").textContent = "Supported"
 	} else {
-		$("localstorage").innerHTML = "not Supported"
+		$("localstorage").textContent = "not Supported"
 	}
 	if('serviceWorker' in navigator) {
-		$("serviceworker").innerHTML = "Supported"
+		$("serviceworker").textContent = "Supported"
 	}
 	else {
-		$("serviceworker").innerHTML = "not Supported"
+		$("serviceworker").textContent = "not Supported"
 	}
   })();
