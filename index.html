@@ -35,7 +35,7 @@
             font-family: "Arial";
             font-weight: bold;
             color: #050739;
-            font-size: 3rem;
+            font-size: 4rem;
         }
         
         .iphone_container {
@@ -58,6 +58,8 @@
         }
 
         #title > #time {
+            margin-top: 1rem;
+            font-size: 2rem;
         }
         
         #content { 
@@ -69,23 +71,30 @@
 
         #content > .row {
             display: flex;
+            align-items: center;
         }
         .row > .icon {
             flex: 1 1 auto;
             display: flex;
             justify-content: center;  
-            max-width: 135px;
+            max-width: 10rem;
+            width: 10rem;
             font-size: 3rem;
+        }
+
+        .icon > img {
+            width: 3rem;
         }
         .row > .value {
             flex: 2 1 auto;
             display: flex;
-            justify-content: center; 
+            align-items: center;
+            padding-left: 10%;
         }
 
         .value > .unit {
             font-size: 1rem;
-
+            margin-left: 0.5rem;
         }
 
     </style>
@@ -102,31 +111,31 @@
         <div id="content">
             <div class="row">
                 <div class="icon">
-                    <img src="img/nageoire.png" alt="" srcset="">
+                    <img src="img/nageoire.png" alt="">
                 </div>
                 <div class="value">0<span class="unit">%</span></div>
             </div>
             <div class="row">
                 <div class="icon">
-                    <img src="img/charging.png" alt="" srcset="">
+                    <img src="img/charging.png" alt="">
                 </div>
                 <div class="value">0<span class="unit">km</span></div>
             </div>
             <div class="row">
                 <div class="icon">
-                    <img src="img/battery.png" alt="" srcset="">
+                    <img src="img/battery.png" alt="">
                 </div>
                 <div class="value">98<span class="unit">%</span></div>
             </div>
             <div class="row">
                 <div class="icon">
-                    <img src="img/speed.png" alt="" srcset="">
+                    <img src="img/speed.png" alt="">
                 </div>
                 <div class="value">98<span class="unit">knots</span></div>
             </div>
             <div class="row">
                 <div class="icon">
-                    <img src="img/message.png" alt="" srcset="">
+                    <img src="img/message.png" alt="">
                 </div>
                 <div class="value"><span id="message">-</span></div>
             </div>
