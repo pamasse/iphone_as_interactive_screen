@@ -94,6 +94,19 @@
             // Rx
             //
 
+            const msgActions = (msg) => {
+                switch (msg) {
+                    case 'getMotorId':
+                        onSend('FinX 1')
+                        break;
+                    case 'FinX 1':
+                        console.log('la start')
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             captureStart.addEventListener("click", function () {
                 console.log('captureStart')
                 init();
@@ -130,7 +143,9 @@
                         var source = e.inputBuffer;
                         var res = ggwave.decode(instance, convertTypedArray(new Float32Array(source.getChannelData(0)), Int8Array));
                         if (res) {
+                            console.log('Res')
                             rxData.value = res;
+                            msgActions(res)
                         }
                     }
 
