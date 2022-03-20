@@ -7,11 +7,6 @@
         <div id="main-container">
             Normal
             
-            <br><br>
-
-            <div>Tx Data:</div> <textarea name="textarea" id="txData" style="width:300px;height:100px;">Hello javascript</textarea><br>
-
-            <button id="play" onclick="onSend();">Send</button>
 
             <br><br>
 
@@ -77,15 +72,13 @@
             // Tx
             //
 
-            function onSend() {
-                console.log('onSend')
+            function onSend(msg) {
                 init();
+                
 
-                // pause audio capture during transmission
-                //captureStop.click();
 
                 // generate audio waveform
-                var waveform = ggwave.encode(instance, txData.value, ggwave.TxProtocolId.GGWAVE_TX_PROTOCOL_AUDIBLE_FAST, 10)
+                var waveform = ggwave.encode(instance, msg, ggwave.TxProtocolId.GGWAVE_TX_PROTOCOL_AUDIBLE_FAST, 10)
 
                 // play audio
                 var buf = convertTypedArray(waveform, Float32Array);
@@ -167,11 +160,13 @@
 
             setTimeout(() => {
                 console.log('1sec later ...')
-                console.log('sound ...')
 
-                onSend();
                 console.log('then click ...')
                 captureStart.click();
+
+                
+                console.log('sound ...')
+                onSend('getMotorId');
             }, 1000)
             // onSend();
 
