@@ -114,16 +114,15 @@ navigator.geolocation.getCurrentPosition(showMap);
 function gotDevices(deviceInfos) {
 	for (let i = 0; i !== deviceInfos.length; ++i) {
 	  const deviceInfo = deviceInfos[i];
-		$("audiokind"+i).textContent = deviceInfo.kind  
-		$("audio"+i).textContent = deviceInfo.label  
-		$("audiodevice"+i).textContent = deviceInfo.deviceId  
 		console.log("Audio OUTPUT ", deviceInfo);  	
-		if (deviceInfo.kind == 'audiooutput') {
-		}
 	}
   }
   navigator.mediaDevices.enumerateDevices()
   .then(gotDevices)
+
+  console.log(navigator.mediaDevices.getUserMedia())
+
+
   
 
 	if(window.localStorage) {
