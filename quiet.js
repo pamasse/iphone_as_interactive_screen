@@ -617,9 +617,7 @@ var Quiet = (function() {
 
         }
         return {
-            audio: {
-                echoCancellation: false
-            }
+            audio: true
         };
     };
 
