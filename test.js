@@ -80,8 +80,6 @@ function generate(str) {
 	dataURI = "data:audio/wav;base64," + btoa(data);
 	audio = new Audio(dataURI);
 	audio.play();
-	
-	$('jmp').disabled = false;
 }
  
 
