@@ -572,6 +572,7 @@ var Quiet = (function() {
     };
 
     function addAudioInputReadyCallback(c, errback) {
+        console.log('addAudioInputReadyCallback')
         if (errback !== undefined) {
             if (audioInputFailedReason !== "") {
                 errback(audioInputFailedReason);
@@ -771,6 +772,7 @@ var Quiet = (function() {
         var destroyed = false;
 
         var readbuf = function() {
+            console.log('readbuf')
             if (destroyed) {
                 return;
             }
@@ -789,6 +791,8 @@ var Quiet = (function() {
         var last_consume_times = [];
         var num_consume_times = 3;
         var consume = function() {
+            console.log('consume')
+
             if (destroyed) {
                 return;
             }
@@ -842,6 +846,7 @@ var Quiet = (function() {
         }
 
         scriptProcessor.onaudioprocess = function(e) {
+            console.log('onaudioprocess')
             if (destroyed) {
                 return;
             }
