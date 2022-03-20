@@ -26,7 +26,9 @@
 
         <script type="text/javascript" src="web_fsk.js"></script>
         <script type='text/javascript'>
-            document.createEvent('TouchEvent')
+            console.log('TouchEvent before')
+            // document.createEvent('TouchEvent')
+            // console.log('TouchEvent after')
 
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             window.OfflineAudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext;
@@ -59,7 +61,9 @@
 
             // initialize audio context and ggwave
             function init() {
+                console.log('Init')
                 if (!context) {
+                    console.log('no context')
                     context = new AudioContext({sampleRate: 48000});
 
                     parameters = ggwave.getDefaultParameters();
@@ -74,6 +78,7 @@
             //
 
             function onSend() {
+                console.log('onSend')
                 init();
 
                 // pause audio capture during transmission
@@ -97,6 +102,7 @@
             //
 
             captureStart.addEventListener("click", function () {
+                console.log('captureStart')
                 init();
 
                 let constraints = {
@@ -147,6 +153,7 @@
             });
 
             captureStop.addEventListener("click", function () {
+                console.log('captureStart')
                 if (recorder) {
                     recorder.disconnect(context.destination);
                     mediaStream.disconnect(recorder);
