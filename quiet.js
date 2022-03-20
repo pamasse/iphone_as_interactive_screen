@@ -112,7 +112,7 @@ var Quiet = (function() {
         if (!prefix.endsWith("/")) {
             prefix += "/";
         }
-        var profilesPath = prefix + "quiet-profiles.json";
+        var profilesPath = "quiet-profiles.json"; //prefix + "quiet-profiles.json";
 
         var fetch = new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
