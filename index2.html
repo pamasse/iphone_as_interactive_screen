@@ -5,13 +5,13 @@
     </head>
     <body>
         <div id="main-container">
-            don't stop listening !!!
+            play interval
             
             <br><br>
 
             <div>Tx Data:</div> <textarea name="textarea" id="txData" style="width:300px;height:100px;">Hello javascript</textarea><br>
 
-            <button onclick="onSend();">Send</button>
+            <button id="play" onclick="onSend();">Send</button>
 
             <br><br>
 
@@ -22,19 +22,12 @@
 
             <br><br>
 
-            <div class="cell-version">
-                <span>
-                    |
-                    Build time: <span class="nav-link">@GIT_DATE@</span> |
-                    Commit hash: <a class="nav-link" href="https://github.com/ggerganov/ggwave/commit/@GIT_SHA1@">@GIT_SHA1@</a> |
-                    Commit subject: <span class="nav-link">@GIT_COMMIT_SUBJECT@</span> |
-                    <a class="nav-link" href="https://github.com/ggerganov/ggwave/tree/master/examples/ggwave-js">Source Code</a> |
-                </span>
-            </div>
         </div>
 
         <script type="text/javascript" src="web_fsk.js"></script>
         <script type='text/javascript'>
+            document.createEvent('TouchEvent')
+
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             window.OfflineAudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext;
 
@@ -165,7 +158,11 @@
                 captureStop.hidden = true;
             });
 
-            captureStop.click();
+            captureStart.click();
+            onSend();
+
+            setInterval(onSend, 1000);
+
         </script>
     </body>
 </html>
