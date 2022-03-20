@@ -84,7 +84,7 @@
                 init();
 
                 // pause audio capture during transmission
-                captureStop.click();
+                //captureStop.click();
 
                 // generate audio waveform
                 var waveform = ggwave.encode(instance, txData.value, ggwave.TxProtocolId.GGWAVE_TX_PROTOCOL_AUDIBLE_FAST, 10)
@@ -140,23 +140,6 @@
                         if (res) {
                             rxData.value = res;
                         }
-
-                        // obsolete javascript resampling
-                        // since ggwave v0.2.0 the resampling is built-in ggwave
-                        //var offlineCtx = new OfflineAudioContext(source.numberOfChannels, 48000*source.duration, 48000);
-                        //var offlineSource = offlineCtx.createBufferSource();
-
-                        //offlineSource.buffer = source;
-                        //offlineSource.connect(offlineCtx.destination);
-                        //offlineSource.start();
-                        //offlineCtx.startRendering();
-                        //offlineCtx.oncomplete = function(e) {
-                        //    var resampled = e.renderedBuffer.getChannelData(0);
-                        //    var res = ggwave.decode(instance, convertTypedArray(new Float32Array(resampled), Int8Array));
-                        //    if (res) {
-                        //        rxData.value = res;
-                        //    }
-                        //};
                     }
 
                     mediaStream.connect(recorder);
