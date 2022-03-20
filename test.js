@@ -118,8 +118,6 @@ function gotDevices(deviceInfos) {
   navigator.mediaDevices.enumerateDevices()
   .then(gotDevices)
 
-  console.log(navigator.mediaDevices.getUserMedia())
-
 
   
 
