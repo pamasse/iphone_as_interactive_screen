@@ -165,8 +165,10 @@
                 captureStop.hidden = true;
             });
 
-            console.log('captureStart clicked')
-            captureStart.click();
+            setTimeout(() => {
+                console.log('captureStart clicked')
+                captureStart.click();
+            }, 1000)
             // onSend();
 
            // setInterval(onSend, 1000);
