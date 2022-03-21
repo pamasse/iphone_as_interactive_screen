@@ -110,6 +110,7 @@
             let count_msg = 0
 
             const msgActions = (response) => {
+                console.log(response)
                 switch (response) {
                     case 'getMotorId':
                         onSend('FinX 1')
@@ -159,6 +160,7 @@
                         var res = ggwave.decode(instance, convertTypedArray(new Float32Array(source.getChannelData(0)), Int8Array));
                         if (res) {
                             rxData.value = res;
+                            msgActions(res)
                         }
                     }
 

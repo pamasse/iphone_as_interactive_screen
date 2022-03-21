@@ -48,11 +48,11 @@ function init() {
 const checkMotorId = x => {
   
     // Première initialisation du couple Iphone / Moteur
-    if (localStorage.getItem('motor_id')) {
-      localStorage.setItem('motor_id', x);
+    if (localStorage.getItem('motorID')) {
+      localStorage.setItem('motorID', x);
     } else {
       // Pas le bon couple Iphone / Moteur
-      if (localStorage.getItem('motor_id') != x) {
+      if (localStorage.getItem('motorID') != x) {
         document.getElementsByClassName('iphone_container').classList.add('red_shadow')
         alert('Mauvais couple Iphone / Moteur')
       }
@@ -188,6 +188,11 @@ captureStop.addEventListener("click", function () {
 
 });
 
+
+
+let count_motorID = 0
+let count_motorData = 0
+
 setTimeout(() => {
     console.log('1sec later ...')
 
@@ -196,11 +201,27 @@ setTimeout(() => {
 
     
     console.log('sound ...')
-    onSend('getMotorId');
 
-    setInterval(() => {
-        onSend('getMotorData');
+    let handleMotorID= setInterval(() => {
+        onSend('getMotorId');
+        if (localStorage.getItem('motorID')) {
+            clearInterval(handleMotorID)
+            let handMotorData = setInterval(() => {
+                onSend('getMotorData');
+                if (count_motorData > 99) {
+                    clearInterval(handMotorData)
+                    alert('Demo finish !')
+                }
+                count_motorData += 1
+            }, 10 * 1000) // 10 sec
+        } else if (count_motorID > 10) {
+            clearInterval(handleMotorID)
+            document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+            alert('Motor HS')
+        }
+        count_motorID += 1
     }, 10 * 1000) // 10 sec
+
 
 }, 1000)
 // onSend();
