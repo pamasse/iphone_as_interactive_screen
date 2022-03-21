@@ -46,6 +46,7 @@ function init() {
 
 
 const checkMotorId = x => {
+    console.log('motor_id: '  +x)
   
     // Première initialisation du couple Iphone / Moteur
     if (!localStorage.getItem('motorID')) {
