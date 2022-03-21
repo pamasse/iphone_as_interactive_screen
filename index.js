@@ -128,7 +128,7 @@ function onSend(msg) {
             break;
         case 'getMotorData':
             displayMotorData(processMotorData(response))
-        
+            break;
         default:
             break;
     }
@@ -217,7 +217,6 @@ setTimeout(() => {
                 onSend('getMotorData');
                 count_motorData += 1
             }, 10 * 1000) // 10 sec
-            break;
         } else if (count_motorID > 10) {
             clearInterval(handleMotorID)
             document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
