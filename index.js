@@ -120,7 +120,7 @@ function onSend(msg) {
       switch (last_msg) {
           case 'getMotorId':
               checkMotorId(response)
-              onSend('getMotorData');
+              setTimeout(() => onSend('getMotorData'), 50);
             break;
         case 'getMotorData':
             displayMotorData(processMotorData(response))
