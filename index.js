@@ -54,7 +54,9 @@ const checkMotorId = x => {
       // Pas le bon couple Iphone / Moteur
       if (localStorage.getItem('motorID') != x) {
         document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
-        alert('Mauvais couple Iphone / Moteur')
+        setTimeout(() => {
+            alert('Mauvais couple Iphone / Moteur')
+        }, 10);
       }
     }
   }
@@ -204,23 +206,26 @@ setTimeout(() => {
     
     console.log('sound ...')
 
-    let handleMotorID= setInterval(() => {
-        onSend('getMotorId');
+    let handleMotorID = setInterval(() => {
         if (localStorage.getItem('motorID')) {
             clearInterval(handleMotorID)
             let handMotorData = setInterval(() => {
-                onSend('getMotorData');
                 if (count_motorData > 99) {
                     clearInterval(handMotorData)
                     alert('Demo finish !')
                 }
+                onSend('getMotorData');
                 count_motorData += 1
             }, 10 * 1000) // 10 sec
+            break;
         } else if (count_motorID > 10) {
             clearInterval(handleMotorID)
             document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
-            alert('Motor HS')
+            setTimeout(() => {
+                alert('Moteur HS')
+            }, 10);
         }
+        onSend('getMotorId');
         count_motorID += 1
     }, 10 * 1000) // 10 sec
 
