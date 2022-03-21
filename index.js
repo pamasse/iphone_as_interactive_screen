@@ -57,6 +57,8 @@ const checkMotorId = x => {
         setTimeout(() => {
             alert('Mauvais couple Iphone / Moteur')
         }, 10);
+      } else {
+          console.log('motor_id: '  +x)
       }
     }
   }
