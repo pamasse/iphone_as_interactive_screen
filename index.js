@@ -66,7 +66,6 @@ const checkMotorId = x => {
 
 const displayMotorData = (data) => {
     for (const x in data) {
-        console.log(x)
         document.getElementById(x).textContent = data[x]
     }
 }
@@ -186,7 +185,6 @@ captureStart.addEventListener("click", function () {
 });
 
 captureStop.addEventListener("click", function () {
-    console.log('captureStart')
     if (recorder) {
         recorder.disconnect(context.destination);
         mediaStream.disconnect(recorder);
