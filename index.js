@@ -53,7 +53,7 @@ const checkMotorId = x => {
     } else {
       // Pas le bon couple Iphone / Moteur
       if (localStorage.getItem('motorID') != x) {
-        document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+        document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
         alert('Mauvais couple Iphone / Moteur')
       }
     }
@@ -73,9 +73,9 @@ const processMotorData = (data) => {
     }
 
     if (motorData[1] < 10) {
-        document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+        document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
     } else {
-        document.getElementsByClassName('iphone_container').classList.remove('red_shadow')
+        document.getElementsByClassName('iphone_container')[0].classList.remove('red_shadow')
     }
 
     return {
@@ -216,7 +216,7 @@ setTimeout(() => {
             }, 10 * 1000) // 10 sec
         } else if (count_motorID > 10) {
             clearInterval(handleMotorID)
-            document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+            document.getElementsByClassName('iphone_container')[0].classList.add('red_shadow')
             alert('Motor HS')
         }
         count_motorID += 1
