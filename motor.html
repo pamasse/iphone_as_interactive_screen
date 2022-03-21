@@ -98,9 +98,9 @@
                     if (x > 95) {
                         res.push('3:' + x + ':20:' + x*2 + ':Battery full ! Have a nice trip !')
                     } else if ( x < 10) {
-                        res.push('3:' + x + ':20:' + x*2 + ':')
-                    } else {
                         res.push('3:' + x + ':20:' + x*2 + ':Warning ! Empty battery')
+                    } else {
+                        res.push('3:' + x + ':20:' + x*2 + ':')
                     }
                 }
                 return res.reverse()
