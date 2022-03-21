@@ -71,11 +71,8 @@
             //
 
             function onSend(msg) {
-                captureStop.click()
                 init();
                 
-
-                setTimeout(() => {
 
                 // generate audio waveform
                 var waveform = ggwave.encode(instance, msg, ggwave.TxProtocolId.GGWAVE_TX_PROTOCOL_AUDIBLE_FAST, 10)
@@ -88,8 +85,6 @@
                 source.buffer = buffer;
                 source.connect(context.destination);
                     source.start(0);
-                    captureStart.click()
-                }, 100);
             }
 
             //
