@@ -46,8 +46,25 @@ function init() {
     }
 }
 
-const displayMotorData = (data) => {
 
+const checkMotorId = x => {
+  
+    // Première initialisation du couple Iphone / Moteur
+    if (localStorage.getItem('motor_id')) {
+      localStorage.setItem('motor_id', x);
+    } else {
+      // Pas le bon couple Iphone / Moteur
+      if (localStorage.getItem('motor_id') != x) {
+        document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+        alert('Mauvais couple Iphone / Moteur')
+      }
+    }
+  }
+
+const displayMotorData = (data) => {
+    for (const x in data) {
+        document.getElementById(x).textContent = data[x]
+    }
 }
 
 const processMotorData = (data) => {
@@ -55,6 +72,12 @@ const processMotorData = (data) => {
     motorData = data.split(':')
     if (motorData.length < 5) {
         console.log('ERRROR')
+    }
+
+    if (motorData[1] < 10) {
+        document.getElementsByClassName('iphone_container').classList.add('red_shadow')
+    } else {
+        document.getElementsByClassName('iphone_container').classList.remove('red_shadow')
     }
 
     return {
@@ -71,9 +94,10 @@ const processMotorData = (data) => {
 // Tx
 //
 
+let last_msg = ''
 function onSend(msg) {
     init();
-    
+    last_msg = msg;
 
 
     // generate audio waveform
@@ -93,10 +117,12 @@ function onSend(msg) {
 // Rx
 //
 
-const msgActions = (response) => {
-    switch (last_msg) {
-        case 'getMotorId':
-            motor_id = response
+  
+  const msgActions = (response) => {
+      switch (last_msg) {
+          case 'getMotorId':
+              checkMotorId(response)
+              onSend('getMotorData');
             break;
         case 'getMotorData':
             displayMotorData(processMotorData(response))
@@ -142,7 +168,6 @@ captureStart.addEventListener("click", function () {
             var source = e.inputBuffer;
             var res = ggwave.decode(instance, convertTypedArray(new Float32Array(source.getChannelData(0)), Int8Array));
             if (res) {
-                console.log('Res')
                 rxData.value = res;
             }
         }

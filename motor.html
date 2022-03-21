@@ -15,7 +15,7 @@
             <button id="captureStart">Start capturing</button>
             <button id="captureStop" hidden>Stop capturing</button>
 
-            <br><br>
+            <br><br> 
 
         </div>
 
@@ -65,26 +65,6 @@
                 }
             }
 
-            const displayMotorData = (data) => {
-
-            }
-
-            const processMotorData = (data) => {
-                //Check format
-                motorData = data.split(':')
-                if (motorData.length < 5) {
-                    console.log('ERRROR')
-                }
-
-                return {
-                    'speed': motorData[0],
-                    'battery': motorData[1],
-                    'power': motorData[2],
-                    'charging': motorData[3],
-                    'message': motorData[4]
-                }
-            }
-
 
             //
             // Tx
@@ -112,14 +92,31 @@
             // Rx
             //
 
+            const generateFakeMotorData = () => {
+                let res = []
+                for (const x of Array(100).keys()) {
+
+                    if (x > 95) {
+                        res.push('3:' + x + ':20:' + x*2 + ':Battery full ! Have a nice trip !')
+                    } else if ( x < 10) {
+                        res.push('3:' + x + ':20:' + x*2 + ':')
+                    } else {
+                        res.push('3:' + x + ':20:' + x*2 + ':Warning ! Empty battery')
+                    }
+                }
+                return res
+            }
+            let fakeMotorData = generateFakeMotorData()
+            let count_msg = 0
+
             const msgActions = (response) => {
-                switch (last_msg) {
+                switch (response) {
                     case 'getMotorId':
-                        motor_id = response
+                        onSend('FinX 1')
                         break;
                     case 'getMotorData':
-                        displayMotorData(processMotorData(response))
-                    
+                        onsend(fakeMotorData[count_msg]);
+                        count_msg += 1;
                     default:
                         break;
                 }
