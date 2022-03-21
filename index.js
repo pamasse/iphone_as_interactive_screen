@@ -63,6 +63,7 @@ const checkMotorId = x => {
 
 const displayMotorData = (data) => {
     for (const x in data) {
+        console.log(x)
         document.getElementById(x).textContent = data[x]
     }
 }
