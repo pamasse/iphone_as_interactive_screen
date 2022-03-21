@@ -138,7 +138,6 @@ function onSend(msg) {
 }
 
 captureStart.addEventListener("click", function () {
-    console.log('captureStart')
     init();
 
     let constraints = {
