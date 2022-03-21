@@ -21,9 +21,6 @@
 
         <script type="text/javascript" src="web_fsk.js"></script>
         <script type='text/javascript'>
-            console.log('TouchEvent before')
-            // document.createEvent('TouchEvent')
-            // console.log('TouchEvent after')
 
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             window.OfflineAudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext;
@@ -68,6 +65,27 @@
                 }
             }
 
+            const displayMotorData = (data) => {
+
+            }
+
+            const processMotorData = (data) => {
+                //Check format
+                motorData = data.split(':')
+                if (motorData.length < 5) {
+                    console.log('ERRROR')
+                }
+
+                return {
+                    'speed': motorData[0],
+                    'battery': motorData[1],
+                    'power': motorData[2],
+                    'charging': motorData[3],
+                    'message': motorData[4]
+                }
+            }
+
+
             //
             // Tx
             //
@@ -94,14 +112,14 @@
             // Rx
             //
 
-            const msgActions = (msg) => {
-                switch (msg) {
+            const msgActions = (response) => {
+                switch (last_msg) {
                     case 'getMotorId':
-                        onSend('FinX 1')
+                        motor_id = response
                         break;
-                    case 'FinX 1':
-                        console.log('la start')
-                        break;
+                    case 'getMotorData':
+                        displayMotorData(processMotorData(response))
+                    
                     default:
                         break;
                 }
@@ -145,7 +163,6 @@
                         if (res) {
                             console.log('Res')
                             rxData.value = res;
-                            msgActions(res)
                         }
                     }
 
