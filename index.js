@@ -70,12 +70,6 @@ const displayMotorData = (data) => {
         document.getElementById(x).textContent = data[x]
     }
 }
-displayMotorData({
-    'speed': 0,
-    'battery': 100,
-    'power': 20,
-    'charging': 200,
-    'message': '-'})
 
 const processMotorData = (data) => {
     //Check format
@@ -213,6 +207,13 @@ setTimeout(() => {
 
     console.log('then click ...')
     captureStart.click();
+    displayMotorData({
+        'speed': 0,
+        'battery': 100,
+        'power': 20,
+        'charging': 200,
+        'message': '-'})
+    
 
     
     console.log('sound ...')
