@@ -48,7 +48,7 @@ function init() {
 const checkMotorId = x => {
   
     // Première initialisation du couple Iphone / Moteur
-    if (localStorage.getItem('motorID')) {
+    if (!localStorage.getItem('motorID')) {
       localStorage.setItem('motorID', x);
     } else {
       // Pas le bon couple Iphone / Moteur
