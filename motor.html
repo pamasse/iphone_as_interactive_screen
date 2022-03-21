@@ -75,6 +75,7 @@
                 init();
                 
 
+                setTimeout(() => {
 
                 // generate audio waveform
                 var waveform = ggwave.encode(instance, msg, ggwave.TxProtocolId.GGWAVE_TX_PROTOCOL_AUDIBLE_FAST, 10)
@@ -86,7 +87,6 @@
                 var source = context.createBufferSource();
                 source.buffer = buffer;
                 source.connect(context.destination);
-                setTimeout(() => {
                     source.start(0);
                     captureStart.click()
                 }, 100);
