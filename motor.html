@@ -71,6 +71,7 @@
             //
 
             function onSend(msg) {
+                captureStop.click()
                 init();
                 
 
@@ -87,6 +88,7 @@
                 source.connect(context.destination);
                 setTimeout(() => {
                     source.start(0);
+                    captureStart.click()
                 }, 100);
             }
 
@@ -118,7 +120,7 @@
                         onSend('FinX 1')
                         break;
                     case 'getMotorData':
-                        onsend(fakeMotorData[count_msg]);
+                        onSend(fakeMotorData[count_msg]);
                         count_msg += 1;
                     default:
                         console.log('On sen fou')

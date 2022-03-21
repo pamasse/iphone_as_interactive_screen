@@ -96,6 +96,7 @@ const processMotorData = (data) => {
 
 let last_msg = ''
 function onSend(msg) {
+    captureStop.click()
     init();
     last_msg = msg;
 
@@ -111,6 +112,7 @@ function onSend(msg) {
     source.buffer = buffer;
     source.connect(context.destination);
     source.start(0);
+    captureStart.click()
 }
 
 //
@@ -227,8 +229,6 @@ setTimeout(() => {
         onSend('getMotorId');
         count_motorID += 1
     }, 10 * 1000) // 10 sec
-
-
 }, 1000)
 // onSend();
 
