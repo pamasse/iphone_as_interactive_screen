@@ -20,8 +20,6 @@ ggwave_factory().then(function(obj) {
     ggwave = obj;
 });
 
-var txData = document.getElementById("txData");
-var rxData = document.getElementById("rxData");
 var captureStart = document.getElementById("captureStart");
 var captureStop = document.getElementById("captureStop");
 
@@ -168,7 +166,7 @@ captureStart.addEventListener("click", function () {
             var source = e.inputBuffer;
             var res = ggwave.decode(instance, convertTypedArray(new Float32Array(source.getChannelData(0)), Int8Array));
             if (res) {
-                rxData.value = res;
+                msgActions(res);
             }
         }
 
@@ -178,9 +176,6 @@ captureStart.addEventListener("click", function () {
         console.error(e);
     });
 
-    rxData.value = 'Listening ...';
-    captureStart.hidden = true;
-    captureStop.hidden = false;
 });
 
 captureStop.addEventListener("click", function () {
@@ -191,9 +186,6 @@ captureStop.addEventListener("click", function () {
         recorder = null;
     }
 
-    rxData.value = 'Audio capture is paused! Press the "Start capturing" button to analyze audio from the microphone';
-    captureStart.hidden = false;
-    captureStop.hidden = true;
 });
 
 setTimeout(() => {
