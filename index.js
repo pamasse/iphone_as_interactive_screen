@@ -117,10 +117,12 @@ function onSend(msg) {
 
   
   const msgActions = (response) => {
+    console.log("**************")
+    console.log(last_msg)
+    console.log(response)
       switch (last_msg) {
           case 'getMotorId':
               checkMotorId(response)
-              setTimeout(() => onSend('getMotorData'), 50);
             break;
         case 'getMotorData':
             displayMotorData(processMotorData(response))
