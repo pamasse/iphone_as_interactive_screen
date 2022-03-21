@@ -205,6 +205,11 @@ setTimeout(() => {
     
     console.log('sound ...')
     onSend('getMotorId');
+
+    setInterval(() => {
+        onSend('getMotorData');
+    }, 10 * 1000) // 10 sec
+
 }, 1000)
 // onSend();
 
